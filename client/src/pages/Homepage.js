@@ -1,6 +1,7 @@
 import {useEffect} from 'react'
 import {useDispatch, useSelector} from 'react-redux'
-import { fetchProducts, fetchShop, fetchShops } from '../redux/slice'
+import { fetchProducts, fetchShop, fetchShops } from '../redux/homeSlice'
+import { addProduct } from '../redux/cartSlice'
 
 export const Homepage = () => {
     const dispatch = useDispatch()
@@ -25,6 +26,8 @@ export const Homepage = () => {
             <img style={{maxWidth: '300px'}} src={product.img} alt={product.name} />
             <p>{product.name}</p>
             <p>{product.price}$</p>
+            <button onClick={() => dispatch(addProduct(product))} 
+            className='btn'>Add to cart</button>
         </div>)}
     </div>
 }
