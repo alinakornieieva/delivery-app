@@ -1,8 +1,8 @@
 import {createSlice} from '@reduxjs/toolkit'
 
 const initialState = {
-    products: [],
-    totalPrice: 0
+    products: JSON.parse(localStorage.getItem('shop') ?? '[]'),
+    totalPrice: JSON.parse(localStorage.getItem('totalPrice') ?? 0)
 }
 
 const slice = createSlice({
@@ -18,6 +18,8 @@ const slice = createSlice({
                 }
                 return product
             }) : state.products.push({...action.payload, amount: 1})
+            localStorage.setItem('shop', JSON.stringify(state.products))
+            localStorage.setItem('totalPrice', JSON.stringify(state.totalPrice))
         },
         deleteProduct: (state, action) => {
             state.totalPrice -= action.payload.price
@@ -29,6 +31,8 @@ const slice = createSlice({
                     return product
                 })
             : state.products.filter((product) => product._id !== action.payload._id)
+            localStorage.setItem('shop', JSON.stringify(state.products))
+            localStorage.setItem('totalPrice', JSON.stringify(state.totalPrice))
         }
     }
 })

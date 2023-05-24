@@ -1,8 +1,8 @@
-import './App.scss'
-import { Navbar } from './components/Navbar/Navbar';
+import { Navbar } from './components/Navbar/Navbar'
 import {Routes, Route} from 'react-router-dom'
-import { Homepage } from './pages/Homepage/Homepage';
-import { ShoppingCartPage } from './pages/ShoppingCartPage/ShoppingCartPage';
+import { Homepage } from './pages/Homepage/Homepage'
+import { ShoppingCartPage } from './pages/ShoppingCartPage/ShoppingCartPage'
+import './App.scss'
 
 const App = () => {
   return <>
@@ -16,4 +16,4 @@ const App = () => {
   </>
 }
 
-export default App;
+export default App

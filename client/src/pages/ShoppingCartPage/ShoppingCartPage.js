@@ -5,17 +5,27 @@ import Form from 'react-bootstrap/Form'
 import { Container, Col, Row } from "react-bootstrap"
 import { addProduct, deleteProduct } from '../../redux/cartSlice'
 import './ShoppingCartPage.scss'
+import axios from '../../axios'
 
 export const ShoppingCartPage = () => {
-    const {products, totalPrice} = useSelector(state => state.cart)
+    const {totalPrice, products} = useSelector(state => state.cart)
     const [name, setName] = useState('')
     const [email, setEmail] = useState('')
     const [phone, setPhone] = useState('')
     const [address, setAddress] = useState('')
     const dispatch = useDispatch()
     const onSubmitClick = () => {
-        const client = {name, email, phone, address}
-        console.log({products, totalPrice, client})
+        try {
+            axios.post('/order', {products, totalPrice, name, email, 
+                phoneNumber: phone, address})
+        } catch(e) {
+            console.error(e)
+            alert('Something went wrong')
+        }
+        setName('')
+        setEmail('')
+        setPhone('')
+        setAddress('')
     }
     if (products.length < 1) {
         return <p className='no-selected'>No selected products in the shopping cart</p>

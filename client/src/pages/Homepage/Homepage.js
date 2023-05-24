@@ -3,12 +3,13 @@ import {useDispatch, useSelector} from 'react-redux'
 import { fetchProducts, fetchShop, fetchShops } from '../../redux/homeSlice'
 import { addProduct } from '../../redux/cartSlice'
 import { Container, Col, Row } from "react-bootstrap"
-import './Homepage.scss'
 import { Loader } from '../../components/Loader/Loader'
+import './Homepage.scss'
 
 export const Homepage = () => {
     const dispatch = useDispatch()
     const [filter, setFilter] = useState('all')
+    const [shopVariant, setShopVariant] = useState(null)
     const {products, shops, productsStatus, shopsStatus} = useSelector(state => state.shop)
     useEffect(() => {
         dispatch(fetchProducts())
@@ -21,6 +22,10 @@ export const Homepage = () => {
         } else {
             dispatch(fetchShop(shop))
         }
+    }
+    const onAddBtnClick = (product) => {
+        dispatch(addProduct(product))
+        setShopVariant(product.shop)
     }
     if (productsStatus === 'error' || shopsStatus === 'error') {
         return <p className='error'>Something went wrong...</p>
@@ -46,7 +51,8 @@ export const Homepage = () => {
                     <p className='name'>{product.name}</p>
                     <div className='descr'>
                         <p className='price'>{product.price}$</p>
-                        <button onClick={() => dispatch(addProduct(product))} 
+                        <button disabled={shopVariant && shopVariant !== product.shop}
+                        onClick={() => onAddBtnClick(product)} 
                         className='btn'>Add to cart</button>
                     </div>
                 </Col>)}
