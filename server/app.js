@@ -55,15 +55,20 @@ app.post('/create', async (req, res) => {
     }
 })
 
-// app.post('/order', async (req, res) => {
-//     try {
-//         const {client, order} = req.body
-
-//         const clientToServer = Client({client})
-//     } catch(e) {
-//         res.status(500).json({message: 'Something went wrong'})
-//     }
-// })
+app.post('/order', async (req, res) => {
+    try {
+        const {products, totalPrice, name,
+        email, phoneNumber, address} = req.body
+        const client = await new Client({name, email, phoneNumber, address})
+        await client.save()
+        const order = await new Order({client, products, totalPrice})
+        await order.save()
+        res.json({message: 'The order has been sent'})
+    } catch(e) {
+        console.log(e)
+        res.status(500).json({message: 'Something went wrong'})
+    }
+})
 
 const start = async () => {
     try {

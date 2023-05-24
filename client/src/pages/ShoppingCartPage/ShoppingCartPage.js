@@ -14,8 +14,8 @@ export const ShoppingCartPage = () => {
     const [address, setAddress] = useState('')
     const dispatch = useDispatch()
     const onSubmitClick = () => {
-        const user = {name, email, phone, address}
-        console.log({products, totalPrice, user})
+        const client = {name, email, phone, address}
+        console.log({products, totalPrice, client})
     }
     if (products.length < 1) {
         return <p className='no-selected'>No selected products in the shopping cart</p>

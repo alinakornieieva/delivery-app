@@ -1,7 +1,8 @@
 const {Schema, model, Types} = require('mongoose')
 
 const schema = Schema({
-    items: [{type: Types.ObjectId, ref: 'OrderItem'}],
+    products: [{type: Types.ObjectId, ref: 'OrderItem'}],
+    totalPrice: {type: Number, required: true},
     client: {type: Types.ObjectId, ref: 'Client'}
 })
 
