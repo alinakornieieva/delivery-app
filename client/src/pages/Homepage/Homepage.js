@@ -9,7 +9,7 @@ import './Homepage.scss'
 export const Homepage = () => {
     const dispatch = useDispatch()
     const [filter, setFilter] = useState('all')
-    const [shopVariant, setShopVariant] = useState(null)
+    const [shopVariant, setShopVariant] = useState(JSON.parse(localStorage.getItem('currentShop')))
     const {products, shops, productsStatus, shopsStatus} = useSelector(state => state.shop)
     useEffect(() => {
         dispatch(fetchProducts())
@@ -26,6 +26,7 @@ export const Homepage = () => {
     const onAddBtnClick = (product) => {
         dispatch(addProduct(product))
         setShopVariant(product.shop)
+        localStorage.setItem('currentShop', JSON.stringify(product.shop))
     }
     if (productsStatus === 'error' || shopsStatus === 'error') {
         return <p className='error'>Something went wrong...</p>

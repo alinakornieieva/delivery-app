@@ -28,6 +28,7 @@ export const ShoppingCartPage = () => {
         setAddress('')
     }
     if (products.length < 1) {
+        localStorage.removeItem('currentShop')
         return <p className='no-selected'>No selected products in the shopping cart</p>
     }
     return <Container className='selected-products'>
