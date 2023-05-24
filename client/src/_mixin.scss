@@ -1,0 +1,10 @@
+@import 'variables';
+
+@mixin btn($color_1, $color_2) {
+  border: none;
+  background-color: $color_1;
+  color: $color_2;
+  padding: 5px 10px;
+  border-radius: 4px;
+  box-shadow: $box_shadow_1;
+}

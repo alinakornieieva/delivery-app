@@ -1,0 +1,17 @@
+@import '../../variables';
+
+.selected-products{
+    img{
+        max-width: 300px;
+    }
+    .btn-section{
+        display: flex;
+        align-items: center;
+        span{
+            margin: 0 8px;
+        }
+    }
+    button{
+        text-align: center;
+    }
+}

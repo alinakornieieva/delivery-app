@@ -1,0 +1,37 @@
+@import '../../variables';
+
+.homepage{
+    .btns{
+        display: flex;
+        margin-bottom: 20px;
+        button{
+            margin-right: 5px;
+        }
+    }
+    .card-item{
+        img{
+            max-width: 300px;
+            border-radius: 3px;
+            box-shadow: $box_shadow_1;
+        }
+        .name{
+            margin-top: 8px;
+            margin-bottom: 5px;
+            text-align: center;
+            font-size: 22px;
+            font-weight: 600;
+        }
+        .price{
+            font-size: 18px;
+            opacity: 0.8;
+            margin-right: 30px;
+        }
+        .descr{
+            margin: 10px 0 30px;
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: flex-start;
+        }
+    }
+}

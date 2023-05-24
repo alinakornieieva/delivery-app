@@ -1,5 +1,7 @@
-.navbar{
-    background-color: #FF7518;
+@import '../variables';
+
+.navbar-comp{
+    background-color: $color_1;
     padding: 20px;
     margin-bottom: 20px;
     a{
