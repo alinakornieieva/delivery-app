@@ -1,17 +1,30 @@
 @import '../../variables';
 
+.no-selected{
+    text-align: center;
+    font-weight: 600;
+    font-size: 22px;
+}
+
 .selected-products{
-    img{
-        max-width: 300px;
+    .total{
+        font-weight: 600;
+        font-size: 22px;
+    }
+    .descr{
+        display: flex;
+        justify-content: center;
     }
     .btn-section{
         display: flex;
+        margin: 0 30px 20px 0;
         align-items: center;
         span{
             margin: 0 8px;
         }
     }
-    button{
+    .submit-btn{
         text-align: center;
+        margin: 20px 0 40px;
     }
 }

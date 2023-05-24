@@ -1,5 +1,12 @@
 @import '../../variables';
 
+.error{
+    text-align: center;
+    font-weight: 600;
+    font-size: 22px;
+    color: rgb(147, 16, 16);
+}
+
 .homepage{
     .btns{
         display: flex;
@@ -9,18 +16,6 @@
         }
     }
     .card-item{
-        img{
-            max-width: 300px;
-            border-radius: 3px;
-            box-shadow: $box_shadow_1;
-        }
-        .name{
-            margin-top: 8px;
-            margin-bottom: 5px;
-            text-align: center;
-            font-size: 22px;
-            font-weight: 600;
-        }
         .price{
             font-size: 18px;
             opacity: 0.8;

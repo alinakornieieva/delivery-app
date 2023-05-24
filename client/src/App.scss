@@ -18,3 +18,16 @@
   text-align: center;
 }
   
+.name{
+  margin-top: 8px;
+  margin-bottom: 5px;
+  text-align: center;
+  font-size: 22px;
+  font-weight: 600;
+}
+
+img{
+  max-width: 300px;
+  border-radius: 3px;
+  box-shadow: $box_shadow_1;
+}

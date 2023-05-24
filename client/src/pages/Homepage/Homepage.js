@@ -4,6 +4,7 @@ import { fetchProducts, fetchShop, fetchShops } from '../../redux/homeSlice'
 import { addProduct } from '../../redux/cartSlice'
 import { Container, Col, Row } from "react-bootstrap"
 import './Homepage.scss'
+import { Loader } from '../../components/Loader/Loader'
 
 export const Homepage = () => {
     const dispatch = useDispatch()
@@ -20,6 +21,12 @@ export const Homepage = () => {
         } else {
             dispatch(fetchShop(shop))
         }
+    }
+    if (productsStatus === 'error' || shopsStatus === 'error') {
+        return <p className='error'>Something went wrong...</p>
+    }
+    if (productsStatus === 'loading' || shopsStatus === 'loading') {
+        return <Loader/>
     }
     return <div className='homepage'>
         {shopsStatus === 'idle' && <div className='btns'>
